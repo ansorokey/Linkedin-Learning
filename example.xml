@@ -1,0 +1,8 @@
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body priority='high'>Don't forget me this weekend!</body>
+<body priority='med'>JFK Airport</body>
+<body priority='low'>Lot 7</body>
+</note>
