@@ -1,45 +1,22 @@
-import itertools
+class Person():
+    def __init__(self):
+        self.fname = 'Anton'
+        self.lname ='Sorokey'
+        self.age = 26
 
-# the cycle method iterates in a loop endlessly
-seq1 = ['Dante', 'Vergil', 'Nero']
-iter1 = itertools.cycle(seq1)
-print(next(iter1))
-print(next(iter1))
-print(next(iter1))
-print(next(iter1))
+    def __repr__(self):
+        return "<Person Class - fname: {0}, lname: {1}, age: {2}>".format(self.fname, self.lname, self.age)
 
-# the count creates a counter with a starting and step value
-count1 = itertools.count()
-print(next(count1))
-print(next(count1))
-print(next(count1))
+    def __str__(self):
+        return "{0} {1} is {2}".format(self.fname, self.lname, self.age)
 
-# the accumulate aggregates values together,
-# defaults to addition but the function can be changed
-vls = [10, 20, 30, 40, 50, 60, 70, 80, 90]
-acc = itertools.accumulate(vls, max)
-print(next(acc))
-print(next(acc))
-print(next(acc))
+    def __bytes__(self):
+        val = "Person:{0}:{1}:{2}".format(self.fname, self.lname, self.age)
+        return bytes(val.encode('utf-8'))
 
+me = Person()
 
-# the chain connects sequences together
-abcs = 'abc'
-one_two_threes = '123'
-chain = itertools.chain(abcs, one_two_threes)
-print(list(chain))
-
-
-# dropwhile and takewhile will return values until a condition is met
-# takewhile will return values until it fails a condition
-# dropwhile will ignore values until it passes a test
-# passing or failing a test after doesnt matter
-vls = [10, 20, 30, 40, 50, 60, 70, 80, 90]
-
-def bigger_than_40(x):
-    return x < 40
-
-take = list(itertools.takewhile(bigger_than_40, vls))
-print(take)
-drop = list(itertools.dropwhile(bigger_than_40, vls))
-print(drop)
+print(repr(me))
+print(str(me))
+print(bytes(me))
+# print("{0}".format(me))
